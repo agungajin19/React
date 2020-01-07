@@ -14,7 +14,7 @@ class Home extends React.Component{
         listNewsEverything : [],
         isLoadingEverything : true,
         isLoading : true,
-        category : 'sport'
+        category : 'Indonesia'
     }
     componentDidMount = ()=>{
        this.getTopList()
@@ -23,7 +23,7 @@ class Home extends React.Component{
     getTopList = ()=>{
         const self = this
         Axios
-            .get(`${url}&category=${this.state.category}`)
+            .get(`${url}`)
             .then(function(response){
                 self.setState({listNews: response.data.articles, isLoading: false})
             })
@@ -42,6 +42,21 @@ class Home extends React.Component{
                 self.setState({isLoadingEverything: false})
             })
 
+    }
+    handleCategory = async (e) => {
+        const self = this
+        console.warn('ini buat liat target',e)
+        let keyword = e
+        await self.setState({category : keyword, isLoadingEverything: true})
+        self.getEveryThing()
+    }
+
+    handleSearch = async (e) => {
+        const self = this
+        console.warn('ini buat liat target',e.target.value)
+        let keyword = e.target.value
+        await self.setState({category : keyword, isLoadingEverything: true })
+        self.getEveryThing()
     }
 
     render(){
@@ -65,6 +80,7 @@ class Home extends React.Component{
                         title = {item.title}
                         image = {item.urlToImage}
                         description = {item.description}
+                        url = {item.url}
                     />
         })
 
@@ -72,7 +88,11 @@ class Home extends React.Component{
         return(
             <div>
                 <div>
-                <Header/>
+                <Header
+                    prosesSearch={e => this.handleSearch(e)}
+                    category = {e => this.handleCategory(e)}
+                    {...this.props}
+                    />
                 <div className=" container row pt-5" style={{paddingLeft:'12%'}}>
                     <div className="col-5 pr-4">
                         {isLoading ? <div style={{textAlign : 'center'}}>Loading ...</div> : <ListArticle dataListArticle={topHeadLines}/>}

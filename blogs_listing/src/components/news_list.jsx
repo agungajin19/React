@@ -17,7 +17,7 @@ class NewsList extends React.Component{
                         <h5>#{i+1}</h5>
                     </div>
                     <div className='col-12 judul'>
-                        <a href='#' >{item.title}</a>
+                        <a href={item.url} >{item.title}</a>
                     </div>
                 </div>
                 )}

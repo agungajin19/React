@@ -1,8 +1,14 @@
 import React from 'react'
 import logo from '../logo.svg'
 import '../styles/header.css'
+import {Link} from 'react-router-dom'
 
 class Header extends React.Component{
+    handleSignOut = () =>{
+        // const self = this
+        localStorage.removeItem('status_login', false)
+        this.props.history.push("/")
+    }
     render(){
         return(
             <nav className="navbar navbar-expand-lg navbar-light bg-light">
@@ -17,35 +23,29 @@ class Header extends React.Component{
                     <div className="col-5  p-0">
                             <ul className="navbar-nav mr-auto mt-2 mt-lg-0" style={{paddingLeft:'70px'}}>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="#">Sepakbola</a>
+                                    <Link className="nav-link" onClick={()=>this.props.category('Indonesia')} to='/'>Home</Link>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="#">Ekonomi</a>
+                                    <Link className="nav-link" onClick={()=>this.props.category('Health')} to='/news-category/health'>Health</Link>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="#">Politik</a>
+                                    <Link className="nav-link" onClick={()=>this.props.category('Technology')} to='/news-category/technology'>Technology</Link>
                                 </li>
                                 <li className="nav-item">
-                                    <a className="nav-link" href="#">Hiburan</a>
+                                    <Link className="nav-link" onClick={()=>this.props.category('Sport')} to='/news-category/sport'>Sport</Link>
                                 </li>
-                                <li class="nav-item dropdown">
-                                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Lainnya
-                                    </a>
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="#">Berita Receh</a>
-                                    <a class="dropdown-item" href="#">Berita Lokal</a>
-                                    <div class="dropdown-divider"></div>
-                                    <a class="dropdown-item" href="#">Berita Gajelas</a>
-                                    </div>
+                                <li className="nav-item">
+                                    <Link className="nav-link" to='/profile'>Profile</Link>
                                 </li>
+                                
+
                             </ul>
                         
                     </div>
                     <div className="col-3">
                     <div className="search-container">
                         <form action="/action_page.php" style={{paddingLeft:'50px'}}>
-                        <input type="text" placeholder="Search" name="search"/>
+                        <input type="text" placeholder="Search" onChange={e=>this.props.prosesSearch(e)}/>
                         <button type="submit"><i className="fa fa-search"></i></button>
                         </form>
                     </div>
@@ -53,10 +53,10 @@ class Header extends React.Component{
                     <div className='col-2 pl-5'>
                         <ul className="navbar-nav mr-auto mt-2 mt-lg-0">
                             <li className="nav-item">
-                                <a className="nav-link" href="#">Masuk</a>
+                                <Link className="nav-link" to='/signin'>Sign In</Link>
                             </li>
                             <li className="nav-item">
-                                <a className="nav-link" href="#">Daftar</a>
+                                <a className="nav-link" onClick={this.handleSignOut}>Sign Out</a>
                             </li>
                         </ul>
                     </div>

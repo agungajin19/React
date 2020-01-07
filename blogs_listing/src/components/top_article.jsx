@@ -4,9 +4,9 @@ import '../styles/top_article.css'
 class TopArticle extends React.Component{
     render(){
         return(
-            <div className='border judul'>
+            <div className='border judul' style={{marginBottom:'25px'}}>
                 <img src={this.props.image} style={{width:'100%'}}/>
-                <a>{this.props.title}</a>
+                <a href={this.props.url}>{this.props.title}</a>
                 <h5>{this.props.description}</h5>
                 <p>Last update 3 min ago</p>
                 <div className='row like' style={{margin:'0'}}>
