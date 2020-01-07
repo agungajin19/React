@@ -5,9 +5,9 @@ class TopArticle extends React.Component{
     render(){
         return(
             <div className='border judul'>
-                <img src={require('../images/putriayako.jpeg')} style={{width:'100%'}}/>
-                <a>Nikahi Rakyat Jelata, Putri Ayako dari Jepang Lepaskan Gelar Kerajaan</a>
-                <h5>Pernikahan Putri Ayako dan Kei Moriya dilangsungkan lewat upacara tradisional Jepang</h5>
+                <img src={this.props.image} style={{width:'100%'}}/>
+                <a>{this.props.title}</a>
+                <h5>{this.props.description}</h5>
                 <p>Last update 3 min ago</p>
                 <div className='row like' style={{margin:'0'}}>
                     <div className='col-4 posisi'>

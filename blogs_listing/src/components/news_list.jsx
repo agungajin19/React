@@ -1,8 +1,9 @@
 import React from 'react'
 import '../styles/list_article.css'
 
-const list_judul=['Gabung Alpha Tech Academy Sekarang!', 'Ada apa antara Kobar dan Hasar?', 'Mengenal Arafat sang Master Python', 'Belajar reactJs itu seru. Kamu setuju?', 'Sudahkah kamu sehat mental?']
-class ListArticle extends React.Component{
+
+
+class NewsList extends React.Component{
     render(){
         return(
             <div className='list'>
@@ -10,13 +11,13 @@ class ListArticle extends React.Component{
                     <h4 className='col-8'>Berita Terkini</h4>
                     <a href='#' className='col-4'>lihat semua</a>
                 </div>
-                {list_judul.map((judul,i) =>
+                {this.props.dataListArticle.slice(0,5).map((item,i) =>
                 <div className='row border'>
                     <div className='col-1 bullet' style={{paddingLeft:'4px'}}>
                         <h5>#{i+1}</h5>
                     </div>
                     <div className='col-12 judul'>
-                        <a href='#' >{judul}</a>
+                        <a href='#' >{item.title}</a>
                     </div>
                 </div>
                 )}
@@ -24,4 +25,4 @@ class ListArticle extends React.Component{
         )
     }
 }
-export default ListArticle
+export default NewsList
