@@ -15,8 +15,8 @@ class ListArticle extends React.Component{
                     <div className='col-1 bullet' style={{paddingLeft:'4px'}}>
                         <h5>#{i+1}</h5>
                     </div>
-                    <div className='col-12'>
-                        <h5 >{judul}</h5>
+                    <div className='col-12 judul'>
+                        <a href='#' >{judul}</a>
                     </div>
                 </div>
                 )}

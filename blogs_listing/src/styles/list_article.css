@@ -7,6 +7,10 @@
 .list a{
     color: #1CA8A8;
 }
+.judul a{
+    font-weight: 600;
+}
+
 .bullet{
     border: 1pt gray;
     border-radius: 30%;

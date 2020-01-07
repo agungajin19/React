@@ -4,3 +4,16 @@
 .posisi{
     text-align: center;
 }
+.judul a{
+    font-weight: 600;
+    font-size: 18pt;
+}
+.judul p{
+    font-size: 10pt;
+}
+.judul h5{
+    font-size: 12pt;
+}
+.border{
+    border-radius: 5%;
+}
