@@ -94,10 +94,10 @@ class Home extends React.Component{
                     {...this.props}
                     />
                 <div className=" container row pt-5" style={{paddingLeft:'12%'}}>
-                    <div className="col-5 pr-4">
+                    <div className="col-md-5 col-sm-12 pr-4">
                         {isLoading ? <div style={{textAlign : 'center'}}>Loading ...</div> : <ListArticle dataListArticle={topHeadLines}/>}
                     </div>
-                    <div className="col-7 ">
+                    <div className="col-md-7 col-sm-12 ">
                         {isLoadingEverything ? <div style={{textAlign : 'center'}}>Loading ...</div> : beritaAnyar}
                     </div>
                 </div>
