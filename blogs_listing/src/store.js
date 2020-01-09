@@ -52,7 +52,7 @@ export const actions = store => ({
         console.warn('ini buat liat target',e.target.value)
         let keyword = e.target.value
         await store.setState({category : keyword, isLoadingEverything: true })
-        getEveryThingNews()
+        getEveryThingNews(keyword)
     }
     
 })
